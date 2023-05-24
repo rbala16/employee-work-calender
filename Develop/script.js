@@ -5,13 +5,16 @@ $('#currentDay').text(today.format('MMM D, YYYY'));
 var dayWeek = today.format('dddd');
 $('#currentDayoftheWeek').text(dayWeek);
 
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
+$(document).ready(function () {
+  //Add a listener for click events on the save button.
+  $(".saveBtn").on("click",function(){
+    //input values in textarea
+    var getTextValue = $(this).siblings(".description").val();;
+    var getTimeValue =$(this).siblings(".hour").text();
+
+    localStorage.setItem(getTimeValue,JSON.stringify(getTextValue));
+  })
+
   //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
