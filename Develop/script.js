@@ -16,4 +16,29 @@ $(document).ready(function () {
   })
 
 
+  function timeCheckTracker(){
+    var currenttime = moment().hours();
+    
+    $(".description").each(function(){
+      var timeCheck =  parseInt($(this).attr("id"));
+     //Add code to apply the past, present, or future class to each time 
+      if(timeCheck > currenttime){
+        $(this).removeClass("past");
+        $(this).removeClass("present");
+        $(this).addClass("future");
+      }
   
+      else if(timeCheck < currenttime){
+        $(this).removeClass("future");
+        $(this).removeClass("presentt");
+        $(this).addClass("past");
+      }
+  
+  else{
+        $(this).removeClass("future");
+        $(this).removeClass("past");
+        $(this).addClass("present");
+      }
+    })
+  
+  }
