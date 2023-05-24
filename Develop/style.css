@@ -11,7 +11,11 @@ textarea {
   border-left: 1px solid black;
   padding: 10px;
 }
-
+.today{
+  padding:10px;
+   float: left;
+   font-weight: bolder;
+ }
 .description {
   white-space: pre-wrap;
 }
